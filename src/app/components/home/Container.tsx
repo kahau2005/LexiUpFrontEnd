@@ -9,7 +9,7 @@ import React, { useContext } from 'react'
 export default function Container() {
   const tabContext = useContext(TabContext)
   return (
-    <main className='flex-1 p-3 overflow-y-scroll'>
+    <main className='flex-1 p-3 overflow-y-scroll h-full w-full'>
         {tabContext?.activeTab === "Home" && <Home/>}
         {tabContext?.activeTab === "Courses" && <Courses/>}
         {tabContext?.activeTab === "History" && <History/>}

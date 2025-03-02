@@ -9,7 +9,6 @@
         border-radius: 10px;
         box-sizing: border-box;
         transition: all .1s linear;
-        transform: translateY(-25px);
         font-weight: bold;
     }
     .nav-item{

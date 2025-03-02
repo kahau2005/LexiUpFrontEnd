@@ -3,6 +3,8 @@ import { Roboto  } from "next/font/google";
 import "./globals.css";
 import { CourseProvider } from "@/app/contexts/CourseContext";
 import { TabProvider } from "@/app/contexts/TabContext";
+import Head from "next/head";
+import { NavDrawerProvider } from "@/app/contexts/NavDrawerContext";
 
 const roboto = Roboto({
   weight: ['400', '700'],
@@ -24,12 +26,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+      </Head>
       <body
         className={`${roboto.className} w-screen h-screen overflow-hidden`}
       >
         <TabProvider>
           <CourseProvider>
-            {children}
+            <NavDrawerProvider>
+              {children}
+            </NavDrawerProvider>
+            
           </CourseProvider>
         </TabProvider>
         
