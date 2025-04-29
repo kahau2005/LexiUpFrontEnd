@@ -6,7 +6,6 @@ export default function Page() {
     <div className='flex flex-col h-full w-full'>
       <Header/>
       <Container/>
-      
     </div>
   )
 }

@@ -5,6 +5,9 @@ import { CourseProvider } from "@/app/contexts/CourseContext";
 import { TabProvider } from "@/app/contexts/TabContext";
 import Head from "next/head";
 import { NavDrawerProvider } from "@/app/contexts/NavDrawerContext";
+import ReduxProvider from "@/app/Provider";
+// import { Provider } from "react-redux";
+// import store from "./redux/store";
 
 const roboto = Roboto({
   weight: ['400', '700'],
@@ -32,14 +35,19 @@ export default function RootLayout({
       <body
         className={`${roboto.className} w-screen h-screen overflow-hidden`}
       >
-        <TabProvider>
-          <CourseProvider>
-            <NavDrawerProvider>
-              {children}
-            </NavDrawerProvider>
-            
-          </CourseProvider>
-        </TabProvider>
+        <ReduxProvider>
+          <TabProvider>
+              <CourseProvider>
+                <NavDrawerProvider>
+                  {children}
+                </NavDrawerProvider>
+                
+              </CourseProvider>
+            </TabProvider>
+        </ReduxProvider>
+          
+        {/* </Provider> */}
+          
         
         
       </body>
