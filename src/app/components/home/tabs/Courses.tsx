@@ -64,7 +64,7 @@ export default function Courses() {
         ) : courseDetails === 0 ? (
           <>
             <YourCourse />
-            <AvailableCourse />
+            <AvailableCourse/>
           </>
         ) : courseDetails === 2 ? (
           <Learn />

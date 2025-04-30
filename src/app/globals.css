@@ -144,7 +144,19 @@ body {
   display: inline-block;
   animation: marquee 6s linear infinite;
 }
-
+.txt-teacher{
+  text-align: center;
+  width: 100%;
+  margin: 0px;
+  font-size: 40px;
+  letter-spacing: 5px;
+  top: 50%;
+  margin-top: -40px;
+  
+  text-shadow: -1px -1px 0px #DFD0B8,
+    3px 3px 0px #DFD0B8,
+    4px 4px 4px #00000055;
+}
 
 
 @layer base {

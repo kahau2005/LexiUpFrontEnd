@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Roboto  } from "next/font/google";
+import { Quicksand  } from "next/font/google";
 import "./globals.css";
 import { CourseProvider } from "@/app/contexts/CourseContext";
 import { TabProvider } from "@/app/contexts/TabContext";
@@ -9,9 +9,9 @@ import ReduxProvider from "@/app/Provider";
 // import { Provider } from "react-redux";
 // import store from "./redux/store";
 
-const roboto = Roboto({
-  weight: ['400', '700'],
-  style: ['normal', 'italic'],
+const quicksand = Quicksand({
+  weight: ['300', '700'],
+  style: ['normal'],
   subsets: ['vietnamese'],
   display: 'swap',
 })
@@ -33,7 +33,7 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
       </Head>
       <body
-        className={`${roboto.className} w-screen h-screen overflow-hidden`}
+        className={`${quicksand.className} w-screen h-screen overflow-hidden`}
       >
         <ReduxProvider>
           <TabProvider>

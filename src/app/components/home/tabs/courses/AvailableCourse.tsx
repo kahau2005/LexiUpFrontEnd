@@ -9,27 +9,33 @@ import {
     DialogTrigger,
   } from "@/components/ui/dialog"
 import Image from 'next/image';
+import { useSelector } from 'react-redux';
+import { ICourseState } from '@/app/interfaces/ICourseState';
+import('@/app/interfaces/ICourseState')
+
 export default function AvailableCourse() {
-    const courseData = [
-        { title: "React Basics", thumbnail: "/images/course_thumbnail.png" },
-        { title: "TypeScript for Beginners", thumbnail: "/images/course_thumbnail.png" },
-        { title: "TypeScript for Beginners", thumbnail: "/images/course_thumbnail.png" },
-        { title: "TypeScript for Beginners", thumbnail: "/images/course_thumbnail.png" },
-        { title: "TypeScript for Beginners", thumbnail: "/images/course_thumbnail.png" },
-        { title: "TypeScript for Beginners", thumbnail: "/images/course_thumbnail.png" },
-        { title: "TypeScript for Beginners", thumbnail: "/images/course_thumbnail.png" },
-        { title: "TypeScript for Beginners", thumbnail: "/images/course_thumbnail.png" },
+    const courses = useSelector((state: {course: ICourseState}) => state.course.course.allCourses || []);
+    // const courseData = [
+    //     { title: "React Basics", thumbnail: "/images/course_thumbnail.png" },
+    //     { title: "TypeScript for Beginners", thumbnail: "/images/course_thumbnail.png" },
+    //     { title: "TypeScript for Beginners", thumbnail: "/images/course_thumbnail.png" },
+    //     { title: "TypeScript for Beginners", thumbnail: "/images/course_thumbnail.png" },
+    //     { title: "TypeScript for Beginners", thumbnail: "/images/course_thumbnail.png" },
+    //     { title: "TypeScript for Beginners", thumbnail: "/images/course_thumbnail.png" },
+    //     { title: "TypeScript for Beginners", thumbnail: "/images/course_thumbnail.png" },
+    //     { title: "TypeScript for Beginners", thumbnail: "/images/course_thumbnail.png" },
         
-      ];
+    //   ];
+    
   return (
     <div className='mt-3'>
         <h1 className='title'>Available Courses</h1>
         <div className='grid grid-cols-2 gap-4'>
-            {courseData.map((item, index) => {
+            {courses.map((item, index) => {
                 return <Dialog key={index}>
                 <DialogTrigger asChild>
                     <div>
-                        <AvailableCard/>
+                        <AvailableCard {...item}/>
                     </div>
                 </DialogTrigger>
                 <DialogContent className="sm:max-w-[425px] w-[80%] rounded-xl">

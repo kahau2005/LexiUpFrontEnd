@@ -1,9 +1,10 @@
 'use client'
+import { ICourse } from '@/app/interfaces/ICourse';
 import { FolderLock } from 'lucide-react';
 import Image from 'next/image';
 import React, { useEffect, useRef, useState } from 'react';
 
-export default function AvailableCard() {
+export default function AvailableCard(props: ICourse) {
   const textRef = useRef<HTMLSpanElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [animation, setAnimation] = useState('');
@@ -30,8 +31,8 @@ export default function AvailableCard() {
     <div className='relative w-full h-[200px] bg-[#9e9e9e]/20 rounded-xl overflow-hidden text-[#f7f7f7]'>
       <div className='absolute w-full h-[60%]'>
         <Image
-          alt='Thumbnail'
-          src={'/images/course_thumbnail.png'}
+          alt='data'
+          src={props.thumbnail || '/images/course_thumbnail.png'}
           width={100}
           height={100}
           className='w-full h-full object-cover p-2 rounded-2xl'
@@ -41,7 +42,7 @@ export default function AvailableCard() {
       <div className='absolute bottom-0 w-full h-[40%] px-3 overflow-hidden'>
         <div className='flex items-center justify-between'>
             <FolderLock/>
-            <div className='py-1 px-2 bg-[#ffffff]/10 font-bold rounded-md'>10 topics</div>
+            <div className='py-1 px-2 bg-[#ffffff]/10 font-bold rounded-md'>{props.topics.length || 0} Topics</div>
         </div>
         <div ref={containerRef} className="relative w-[100%] overflow-hidden">
           <style>{animation}</style>
@@ -50,7 +51,7 @@ export default function AvailableCard() {
             className="whitespace-nowrap inline-block mt-2" 
             style={{ animation: textRef.current ? `scrollText ${textRef.current.offsetWidth / 30}s linear infinite` : 'none' }}
           >
-            Vocabulary for band 6-7 and higher level preparation
+            {props.course_name}
           </span>
         </div>
       </div>
